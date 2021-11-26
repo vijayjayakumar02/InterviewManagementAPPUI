@@ -11,12 +11,12 @@ import { UserManagementComponent } from './user-management/user-management.compo
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
-  {path:"register",component:RegisterComponent},
+  {path:"register",component:RegisterComponent, canActivate:[AuthService]},
   {path:"user-management",component:UserManagementComponent, canActivate:[AuthService]},
-  {path:"interview-management",component:SidenavComponent},
-  {path:"idashboard",component:InterviewerDashboardComponent},
-  {path:"application",component:ApplicationComponent},
-  {path:"iform",component:InterviewFormComponent}
+  {path:"interview-management",component:SidenavComponent, canActivate:[AuthService]},
+  {path:"idashboard",component:InterviewerDashboardComponent, canActivate:[AuthService]},
+  {path:"application",component:ApplicationComponent, canActivate:[AuthService]},
+  {path:"iform",component:InterviewFormComponent,  canActivate:[AuthService]}
 ];
 
 @NgModule({
